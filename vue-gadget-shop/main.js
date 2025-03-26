@@ -24,6 +24,18 @@ const app = Vue.createApp({
                     inStock: true,
                 },
             ],
+            cart: [],
         };
     },
+    methods: {
+        addToCart(gadget) {
+            this.cart.push(gadget);
+        },
+        removeFromCart(index) {
+            if (isNaN(index)) return;
+            this.cart.splice(index, 1);
+        },
+    },
 });
+
+const mountedApp = app.mount('#app');
