@@ -11,12 +11,14 @@
         <div id="app">
             <h1>{{title}}</h1>
             <p>{{description}}</p>
-            <div class="gadget">
-                <img :src="img" />
-                <h2>{{name}}</h2>
-                <p>{{price}}&euro;</p>
-                <p v-if="inStock">✅ En stock</p>
-                <p v-else>❌ En rupture de stock</p>
+            <div class="gadget-container">
+                <div class="gadget" v-for="gadget in gadgets">
+                    <img :src="gadget.img" />
+                    <h2>{{gadget.name}}</h2>
+                    <p>{{gadget.price}}&euro;</p>
+                    <p v-if="gadget.inStock">✅ En stock</p>
+                    <p v-else>❌ En rupture de stock</p>
+                </div>
             </div>
         </div>
     </body>
