@@ -21,6 +21,9 @@ body {
 #app {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Title */
@@ -117,4 +120,37 @@ button:disabled {
         flex-direction: column;
         align-items: center;
     }
+}
+
+/* Cart */
+.cart {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    margin-bottom: 16px;
+}
+
+.cart li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.remove-btn {
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }

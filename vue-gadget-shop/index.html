@@ -12,7 +12,7 @@
             <h1>{{title}}</h1>
             <p>{{description}}</p>
             <div class="cart">
-                <h2>🛒 Mon Panier (0)</h2>
+                <h2>🛒 Mon Panier ({{cart.length}})</h2>
                 <ul v-for="(product, index) in cart">
                     <li>
                         {{product.name}} - {{product.price}}€
