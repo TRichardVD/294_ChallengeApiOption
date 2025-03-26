@@ -25,6 +25,16 @@
                     </li>
                 </ul>
                 <p v-show="cart.length === 0">Votre panier est vide.</p>
+                <h3 style="color: #007bff">
+                    💰 Total :
+                    <span v-if="cartTotal < 1000">{{cartTotal}}&euro;</span>
+                    <span v-else>
+                        <s style="color: red">{{cartTotal}}&euro;</s> ➝
+                        <strong style="color: green"
+                            >{{discountedTotal}}&euro; (-10%)</strong
+                        >
+                    </span>
+                </h3>
             </div>
             <div class="gadget-container">
                 <div class="gadget" v-for="gadget in gadgets">

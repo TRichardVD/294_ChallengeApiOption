@@ -27,6 +27,19 @@ const app = Vue.createApp({
             cart: [],
         };
     },
+    computed: {
+        cartTotal() {
+            let total = 0;
+            this.cart.forEach((product) => {
+                total += product.price;
+            });
+            return total;
+        },
+        discountedTotal() {
+            const total = this.cartTotal;
+            return total > 1000 ? total * 0.9 : total;
+        },
+    },
     methods: {
         addToCart(gadget) {
             this.cart.push(gadget);
