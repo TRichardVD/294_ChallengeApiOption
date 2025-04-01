@@ -15,11 +15,23 @@ app.component('gadget-display', {
             >
                 Ajouter au panier
             </button>
+            <div class="avis">
+                <h3>Avis</h3>
+                <div v-if="gadget.reviews" class="review" v-for="comment of gadget.reviews">
+                    {{comment.name}} - {{comment.star}} ⭐ {{comment.text}}
+                </div>
+                <p v-else>Aucun commentaire.</p>
+            </div>
+            
+            <review-form @add-review="addReview"></review-form>
         </div>
     `,
     methods: {
         addToCart() {
             this.$emit('add-to-cart', this.gadget);
+        },
+        addReview(review) {
+            this.$emit('add-review', this.gadget, review);
         },
     },
 });

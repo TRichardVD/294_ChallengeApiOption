@@ -11,6 +11,7 @@ const app = Vue.createApp({
                     price: 799,
                     img: './assets/phone.jpg',
                     inStock: true,
+                    reviews: [],
                 },
                 {
                     id: 2,
@@ -18,6 +19,7 @@ const app = Vue.createApp({
                     price: 1299,
                     img: './assets/laptop.jpg',
                     inStock: false,
+                    reviews: [],
                 },
                 {
                     id: 3,
@@ -25,6 +27,7 @@ const app = Vue.createApp({
                     price: 199,
                     img: './assets/earbuds.jpg',
                     inStock: true,
+                    reviews: [],
                 },
             ],
             cart: [],
@@ -65,6 +68,10 @@ const app = Vue.createApp({
         removeFromCart(index) {
             if (isNaN(index)) return;
             this.cart.splice(index, 1);
+        },
+        addReview(gadget, review) {
+            const g = this.gadgets.find((element) => element.id === gadget.id);
+            g.reviews.push(review);
         },
     },
 });
