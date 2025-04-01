@@ -37,21 +37,17 @@
                 </h3>
             </div>
             <div class="gadget-container">
-                <div class="gadget" v-for="gadget in gadgets">
-                    <img :src="gadget.img" />
-                    <h2>{{gadget.name}}</h2>
-                    <p>{{gadget.price}}&euro;</p>
-                    <p v-if="gadget.inStock">✅ En stock</p>
-                    <p v-else>❌ En rupture de stock</p>
-                    <button
-                        :disabled="!gadget.inStock"
-                        @click="addToCart(gadget)"
-                    >
-                        Ajouter au panier
-                    </button>
-                </div>
+                <gadget-display
+                    :gadget="gadget"
+                    v-for="gadget in gadgets"
+                    @add-to-cart="addToCart"
+                ></gadget-display>
             </div>
         </div>
     </body>
     <script src="main.js"></script>
+    <script src="./components/GadgetDisplay.js"></script>
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
 </html>
