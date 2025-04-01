@@ -8,6 +8,17 @@ app.component('cart-display', {
                     <li>
                         {{product.name}} - {{product.price}}€
                         <button
+                            @click="addToCart(product)"
+                        >
+                            ➕
+                        </button>
+                        {{product.quantity}}
+                        <button
+                            @click="decrFromCart(index)"
+                        >
+                            ➖
+                        </button>
+                        <button
                             class="remove-btn"
                             @click="removeFromCart(index)"
                         >
@@ -32,6 +43,12 @@ app.component('cart-display', {
     methods: {
         removeFromCart(index) {
             this.$emit('remove-from-cart', index);
+        },
+        addToCart(gadget) {
+            this.$emit('add-to-cart', gadget);
+        },
+        decrFromCart(index) {
+            this.$emit('decr-from-cart', index);
         },
     },
 });

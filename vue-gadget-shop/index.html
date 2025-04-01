@@ -16,6 +16,8 @@
                 :cart="cart"
                 :cart-total="cartTotal"
                 :discounted-total="discountedTotal"
+                @add-to-cart="addToCart"
+                @decr-from-cart="decrFromCart"
             ></cart-display>
             <div class="gadget-container">
                 <gadget-display
