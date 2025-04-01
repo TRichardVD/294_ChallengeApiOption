@@ -11,31 +11,12 @@
         <div id="app">
             <h1>{{title}}</h1>
             <p>{{description}}</p>
-            <div class="cart">
-                <h2>🛒 Mon Panier ({{cart.length}})</h2>
-                <ul v-for="(product, index) in cart">
-                    <li>
-                        {{product.name}} - {{product.price}}€
-                        <button
-                            class="remove-btn"
-                            @click="removeFromCart(index)"
-                        >
-                            ❌
-                        </button>
-                    </li>
-                </ul>
-                <p v-show="cart.length === 0">Votre panier est vide.</p>
-                <h3 style="color: #007bff">
-                    💰 Total :
-                    <span v-if="cartTotal < 1000">{{cartTotal}}&euro;</span>
-                    <span v-else>
-                        <s style="color: red">{{cartTotal}}&euro;</s> ➝
-                        <strong style="color: green"
-                            >{{discountedTotal}}&euro; (-10%)</strong
-                        >
-                    </span>
-                </h3>
-            </div>
+            <cart-display
+                @remove-from-cart="removeFromCart"
+                :cart="cart"
+                :cart-total="cartTotal"
+                :discounted-total="discountedTotal"
+            ></cart-display>
             <div class="gadget-container">
                 <gadget-display
                     :gadget="gadget"
@@ -47,6 +28,7 @@
     </body>
     <script src="main.js"></script>
     <script src="./components/GadgetDisplay.js"></script>
+    <script src="./components/CartDisplay.js"></script>
     <script>
         const mountedApp = app.mount('#app');
     </script>
